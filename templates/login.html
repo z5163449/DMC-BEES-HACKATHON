@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+  body{
+    background-color: #eee;
+  }
+</style>
+
+<center style = "font-family: arial">Please enter your username and password </center>
+<p></p>
+{% block body %}
+{% if session['logged_in'] %}
+<p>Already logged in</p>
+{% else %}
+<center><head>
+  <title>Home Page</title>
+</head>
+<div style = "text-align: center">
+  <form action="/login" method="POST">
+    <input type="username" name="username" placeholder="Username"></input>
+    <input type="password" name="password" placeholder="Password"></input>
+    <input type="submit" value="Log in">
+  </form>
+</div>
+{% endif %}
+{% endblock %}
+</html>
